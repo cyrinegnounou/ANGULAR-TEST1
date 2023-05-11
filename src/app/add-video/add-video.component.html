@@ -1,0 +1,33 @@
+<form #f="ngForm">
+    <div class="form-group">
+      <label >ID</label>
+      <input type="text" class="form-control" name="id" aria-describedby="emailHelp" placeholder="Enter id" [(ngModel)]="video.id" required ngPattern="[0-9]+" #id="ngModel" >
+      <div class="alert alert-danger" *ngIf="id.invalid"><p> champs obligatoire et contient un nombre</p></div>
+    </div>
+    <div class="form-group">
+      <label >Title</label>
+      <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="video.title"  required minlength="3" #titre="ngModel" pattern="[A-Z].*">
+      <div >
+        <p class="alert alert-danger" *ngIf="titre.errors?.['required'] && titre.touched"> champs obligatoire </p>
+        <p class="alert alert-danger" *ngIf="titre.errors?.['minlength'] && titre.touched">  minimum 3 caractére</p>
+    </div>
+    </div>
+    <div class="form-group">
+        <label >Genre</label>
+        <input type="text" class="form-control" name="genre" placeholder="genre" [(ngModel)]="video.genre"  required minlength="3" #titre="ngModel">
+        <div >
+          <p class="alert alert-danger" *ngIf="titre.errors?.['required'] && titre.touched"> champs obligatoire </p>
+          <p class="alert alert-danger" *ngIf="titre.errors?.['minlength'] && titre.touched">  minimum 3 caractére</p>
+      </div>
+
+      <div class="form-group">
+        <label >Public</label>
+        <input type="number" class="form-control" name="public" placeholder="public" [(ngModel)]="video.public">
+      </div>
+   
+    <button type="submit" [disabled]="f.invalid" class="btn btn-primary" (click)="addVideo()" >ajouter</button></div>
+    </form>
+  
+  {{video.id}}
+  {{video.title}}
+

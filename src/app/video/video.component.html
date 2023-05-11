@@ -1,0 +1,20 @@
+<div class="row">
+<div class="col-md-1"></div>  
+
+
+<div class="card" style="width: 18rem;" *ngFor="let v of listvideo; let i=index">
+    <img class="card-img-top" src="https://www.lascom.com/wp-content/uploads/2021/03/Bland_Cosmetic_Product_Packaging_Unit_500x400.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{v.title}}</h5>
+      <p class="card-text">genre:{{v.genre}}</p>
+      <p class="card-text">public:{{v.public}}</p>
+      <p class="card-text">nbrShared:{{v.nbrShared}}</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/videos', v.id]">Detail</a>
+      <button (click)="deleteVideo(v.id)"> 
+        Delete
+      </button>  
+    </div>
+    </div>
+</div>
+
+  
